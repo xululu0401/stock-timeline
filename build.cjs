@@ -1,0 +1,1 @@
+const fs=require('node:fs'),p=require('node:path');const dir=__dirname;const html=fs.readFileSync(p.join(dir,'template.html'),'utf8').replace('/*CORE*/',()=>fs.readFileSync(p.join(dir,'core.js'),'utf8')).replace('/*UI*/',()=>fs.readFileSync(p.join(dir,'ui.js'),'utf8'));fs.writeFileSync(p.join(dir,'index.html'),html);console.log('built',Buffer.byteLength(html));
